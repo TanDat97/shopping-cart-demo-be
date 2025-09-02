@@ -47,15 +47,10 @@ export class ShoppingCartService extends CoreService {
         const promotionResult = this.calculatePromotion(promoCode, processedItems);
         if (promotionResult) {
           promotions.push(promotionResult);
-          console.log('promotionResult', promotionResult);
           totalDiscount += promotionResult.discountAmount;
         }
       }
     }
-    console.log('totalDiscount', totalDiscount);
-    console.log('subTotalAmount', subTotalAmount);
-    console.log('totalItems', totalItems);
-    console.log('currency', currency);
 
     const finalTotalAmount = Math.max(0, subTotalAmount - totalDiscount);
 
