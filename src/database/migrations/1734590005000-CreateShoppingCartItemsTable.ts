@@ -66,7 +66,7 @@ export class CreateShoppingCartItemsTable1734590005000 implements MigrationInter
           {
             name: 'product_image',
             type: 'varchar',
-            length: '500',
+            length: '2000',
             isNullable: true,
           },
           {

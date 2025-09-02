@@ -31,7 +31,7 @@ export class ShoppingCartItemEntity extends CoreEntity {
   @Column({ name: 'product_name', type: 'varchar', length: 255 })
   productName: string;
 
-  @Column({ name: 'product_image', type: 'varchar', length: 500, nullable: true })
+  @Column({ name: 'product_image', type: 'varchar', length: 2000, nullable: true })
   productImage?: string;
 
   @Column({ name: 'notes', type: 'text', nullable: true })
