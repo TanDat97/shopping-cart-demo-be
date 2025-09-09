@@ -31,6 +31,7 @@ export class ShoppingCartService extends CoreService {
       return {
         productSku: item.productSku,
         productName: item.productName,
+        productImage: item.productImage,
         quantity: item.quantity,
         price: item.price,
         discount: itemDiscountAmount,
