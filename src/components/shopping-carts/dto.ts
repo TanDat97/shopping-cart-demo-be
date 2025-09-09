@@ -67,3 +67,23 @@ export class PreviewCartDto {
   @IsString({ each: true, message: 'Promotions must be an array of strings' })
   promotionCodes?: string[];
 }
+
+export class CheckoutCartDto {
+  @IsOptional()
+  @IsString({ message: 'Cart UUID must be a string' })
+  cartUuid: string;
+
+  @IsArray({ message: 'Cart items must be an array' })
+  @ValidateNested({ each: true })
+  @Type(() => CartItemDto)
+  items: CartItemDto[];
+
+  @IsOptional()
+  @IsString({ message: 'Currency must be a string' })
+  currency?: string;
+
+  @IsOptional()
+  @IsArray({ message: 'Promotions must be an array' })
+  @IsString({ each: true, message: 'Promotions must be an array of strings' })
+  promotionCodes?: string[];
+}

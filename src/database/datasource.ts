@@ -1,8 +1,8 @@
 import { DataSource } from 'typeorm';
 import configs from '../configs';
-import { UserEntity } from '../components/users/entity';
 import { ProductEntity } from '../components/products/entity';
-import { ProductInventoryEntity } from '../components/product-inventory/entity';
+import { ShoppingCartEntity } from '@components/shopping-carts/entity';
+import { ShoppingCartItemEntity } from '@components/shopping-cart-items/entity';
 
 export const myDataSource = new DataSource({
   type: 'mysql',
@@ -13,9 +13,10 @@ export const myDataSource = new DataSource({
   database: configs.database.database,
   synchronize: configs.database.synchronize == 'true',
   logging: configs.database.logging == 'true',
-  entities: [UserEntity, ProductEntity, ProductInventoryEntity],
+  entities: [ProductEntity, ShoppingCartEntity, ShoppingCartItemEntity],
   driver: require('mysql2'),
   migrations: [__dirname + '/migrations/*{.ts,.js}'],
   migrationsTableName: 'migrations',
   migrationsRun: true,
+  ssl: configs.database.ssl == 'true',
 });

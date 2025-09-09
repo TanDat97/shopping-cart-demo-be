@@ -1,6 +1,6 @@
 import { CoreService } from '@core';
 import { ShoppingCartRepository } from './repository';
-import { PreviewCartDto, CartItemDto } from './dto';
+import { PreviewCartDto, CartItemDto, CheckoutCartDto } from './dto';
 import { PromotionType, IPromotionResult } from '@core/interfaces';
 import { Num } from '@utils';
 
@@ -69,6 +69,17 @@ export class ShoppingCartService extends CoreService {
         appliedToItems: promo.appliedToItems,
       })),
     };
+  }
+
+  async checkoutCart(dto: CheckoutCartDto) {
+    // check if cart is exist and valid to checkout
+    // check if cart items is valid
+    // create order
+    // update cart status to completed
+    // return order
+
+    // current just process like preview cart
+    return this.previewCart(dto);
   }
 
   private calculatePromotion(code: string, items: any[]): IPromotionResult | null {

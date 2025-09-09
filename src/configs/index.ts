@@ -13,6 +13,7 @@ const configs = {
     username: process.env.DB_USERNAME || 'tandat',
     password: process.env.DB_PASSWORD || '12345678',
     database: process.env.DB_DATABASE || 'houzez_dev',
+    ssl: process.env.DB_SSL || 'false',
     synchronize: process.env.DB_SYNCHRONIZE,
     logging: process.env.DB_LOGGING,
   },

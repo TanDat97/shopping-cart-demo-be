@@ -1,7 +1,6 @@
 import { Entity, Column, ManyToOne, OneToMany, JoinColumn, Index, PrimaryGeneratedColumn, } from 'typeorm';
 import { EnumColumn } from '@libraries/typeorm';
 import { CartStatus } from '@core/interfaces';
-import { UserEntity } from '../users/entity';
 import { CoreEntityNoId } from '@core';
 import { ShoppingCartItemEntity } from '@components/shopping-cart-items/entity';
 
@@ -37,11 +36,6 @@ export class ShoppingCartEntity extends CoreEntityNoId {
 
   @Column({ name: 'expires_at', type: 'timestamp', nullable: true })
   expiresAt?: Date;
-
-  // Relations
-  @ManyToOne(() => UserEntity, { onDelete: 'CASCADE' })
-  @JoinColumn({ name: 'user_id' })
-  user: UserEntity;
 
   @OneToMany(() => ShoppingCartItemEntity, (item) => item.cart, { cascade: true })
   items: ShoppingCartItemEntity[];

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import { ShoppingCartController } from '../components/shopping-carts/controller';
 import { validationMiddleware } from '../middlewares/validation';
-import { GetCartDto, PreviewCartDto } from '../components/shopping-carts/dto';
+import { CheckoutCartDto, GetCartDto, PreviewCartDto } from '../components/shopping-carts/dto';
 
 export class CartRoutes {
   public router: Router;
@@ -20,5 +20,7 @@ export class CartRoutes {
     // POST /carts/preview - Preview cart calculation without saving
     this.router.post('/carts/preview', validationMiddleware(PreviewCartDto, 'body'), this.cartController.previewCart);
 
+    // POST /carts/checkout
+    this.router.post('/carts/checkout', validationMiddleware(CheckoutCartDto, 'body'), this.cartController.checkoutCart);
   }
 }

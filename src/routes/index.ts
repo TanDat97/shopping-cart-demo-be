@@ -1,6 +1,5 @@
 import { Router, Request, Response } from 'express';
 import { Auth } from '../middlewares/auth';
-import { UserRoutes } from './users.routes';
 import { ProductRoutes } from './products.routes';
 import { CartRoutes } from './cart.routes';
 
@@ -16,10 +15,6 @@ export class Routes {
     });
 
     this.router.use(Auth.verifyToken);
-
-    // User routes
-    const userRoutes = new UserRoutes();
-    this.router.use('/v1', userRoutes.router);
 
     // Product routes
     const productRoutes = new ProductRoutes();
